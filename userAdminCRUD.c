@@ -45,7 +45,7 @@ void PrintUserData(){
     while (fgets(line, 1000, fp) != NULL){
         // printf("\n%s",line);
 
-        printf("----------- User Line : %d -------------\n\n",i);
+        // printf("----------- User Line : %d -------------\n\n",i);
 
         sp = strtok(line, ",");
         strcpy(users[i].userName, sp);
@@ -162,15 +162,21 @@ void EditUser(){
 
             printf("Current value for username is %s; please enter new value:\t", updateUser.userName);
             fflush(stdin);
+            yellow();
             fgets(updateUser.userName, 50, stdin); 
+            reset();
             updateUser.userName[strlen(updateUser.userName)-1] = 0;
             // scanf("%s", &updateUser.userName);
 
             printf("Current value for email is %s; please enter new value:\t", updateUser.email );
+            yellow();
             scanf("%s", &updateUser.email);
+            reset();
 
             printf("Current value for phone is %s; please enter new value:\t", updateUser.phone );
+            yellow();
             scanf("%s", &updateUser.phone);
+            reset();
 
             fprintf(fpTemp,
                 "%s,%s,%s,%s,%s",
@@ -246,12 +252,16 @@ void RemoveUser(){
     fflush(stdin);
     printf("Enter Number Of Item That You Want To Edit :\t");
 
+    yellow();
     if(scanf("%d",&targetLine) != 1) {
+        reset();
         system("clear");
         printf("Please Enter Correct Type\n");
         RemoveUser();
     }
 
+    reset();
+    
     fp = fopen("database/User.csv","r");
     fpTemp = fopen("database/TempUser.csv","w");
 

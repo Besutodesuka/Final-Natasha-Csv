@@ -86,8 +86,10 @@ void CommandUser(User *currentUser){
     printf("\n(6) Exit");
     printf("\n\nYour choice\t:\t");
     fflush(stdin);
+    yellow();
     scanf("%d",&choice);
-
+    reset();
+    
     switch (choice){
     case 1:
 
@@ -146,7 +148,9 @@ void CommandProduct(User *currentUser){
     printf("\n(6) Exit");
     printf("\n\nYour choice\t:\t");
     fflush(stdin);
+    yellow();
     scanf("%d",&choice);
+    reset();
 
     switch (choice){
     case 1:

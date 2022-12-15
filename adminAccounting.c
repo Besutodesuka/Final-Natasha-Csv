@@ -24,8 +24,10 @@ void SelectAccounting(){
     printf("\n(3) Profit Time Range");
     printf("\n(4) Exit");
     printf("\n\nYour choice\t:\t");
+    yellow();
     if(scanf("%d",&choice) != 1) {
         system("clear");
+        reset();
         printf("Please Enter Correct Type\n");
         SelectPointOfSales();
         return;
@@ -142,10 +144,12 @@ void SeeAllProfit(){
         }
     }
 
-    printf("Money Receieve Of All Time  :\t%d\n", moneyReceive);
-    printf("Product Cost Of All Time    :\t%d\n", sumCost);
-    printf("Product Profit Of All Time  :\t%d\n", sumProfit);
-
+    printf("Money Receieve Of All Time  :\t\033[0;33m%d\n", moneyReceive);
+    reset();
+    printf("Product Cost Of All Time    :\t\033[0;31m%d\n", sumCost);
+    reset();
+    printf("Product Profit Of All Time  :\t\033[0;32m%d\n", sumProfit);
+    reset();
 
     // SelectAccounting();
     return;
@@ -238,9 +242,12 @@ void ProfitByProductName(){
         if(strcmp(tempProduct[i].productName, "None") != 0){
             printf("Rank %d\n",counter);
             printf("Product Name    :\t%s\n",tempProduct[i].productName);
-            printf("Money Receive   :\t%d\n",tempProduct[i].productPrice * tempProduct[i].totalInCart);
-            printf("Product Cost    :\t%d\n",tempProduct[i].productCost * tempProduct[i].totalInCart);
-            printf("Product ProFit  :\t%d\n",tempProduct[i].productProfit * tempProduct[i].totalInCart);
+            printf("Money Receive   :\t\033[0;33m%d\n",tempProduct[i].productPrice * tempProduct[i].totalInCart);
+            reset();
+            printf("Product Cost    :\t\033[0;31m%d\n",tempProduct[i].productCost * tempProduct[i].totalInCart);
+            reset();
+            printf("Product ProFit  :\t\033[0;32m%d\n",tempProduct[i].productProfit * tempProduct[i].totalInCart);
+            reset();
             printf("\n\n");
             counter++;
         }
@@ -384,10 +391,14 @@ void ProfitTimeRange(){
             // printf("\n\n");
         }
     }
-    printf("Accounting In %s \n",fullTarget);
-    printf("Money Receive   :\t%d\n",moneyReceive);
-    printf("Product Cost    :\t%d\n",sumCost);
-    printf("Product Profit  :\t%d\n",sumProfit);
+    printf("\nAccounting In %s \n",fullTarget);
+    printf("Money Receive   :\t\033[0;33m%d\n",moneyReceive);
+    reset();
+    printf("Product Cost    :\t\033[0;31m%d\n",sumCost);
+    reset();
+    printf("Product Profit  :\t\033[0;32m%d\n",sumProfit);
+    reset();
+    
 
     // SelectAccounting();
     return;
@@ -412,7 +423,9 @@ void CalculateMonthAccounting(char target[], char fullTarget[]){
     fflush(stdin);
     printf("Your Input :\t");
     int choice;
+    yellow();
     scanf("%d",&choice);
+    reset();
 
     switch (choice){
     case 1:
@@ -508,7 +521,10 @@ void CalculateWeekAccounting(time_t *lastTime, time_t *lastLastTime, time_t *sel
     printf("%.10s\n",ctime(&week6));
 
     int choice;
+    yellow();
     scanf("%d",&choice);
+    reset();
+    
     switch (choice){
     case 1:
         *lastTime = week1;    

@@ -22,7 +22,7 @@ void PrintProduct(){
     FILE *fp;
     
     fp = fopen("database/Product.csv","r");
-    printf("\n ****Product Information****\n");
+    printf("\n--------------  Product Information  --------------\n");
     int i = 1;
     char line[1000];
     char *sp;
@@ -32,7 +32,7 @@ void PrintProduct(){
 
     while (fgets(line, 1000, fp) != NULL){
 
-        printf("----------- Product Number : %d -------------\n\n",i);
+        printf("----------- Product Number : \033[0;32m%d\033[0m -------------\n\n",i);
         // printf("\n%s\n",line);
         sp = strtok(line, ",");
         strcpy(product.productName, sp);

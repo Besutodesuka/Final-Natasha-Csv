@@ -36,13 +36,17 @@ void CheckBillSelection(User *currentUser){
     printf("\n\nYour choice\t:\t");
     fflush(stdin);
     
+    yellow();
     if(scanf("%d",&choice) != 1) {
+        reset();
         system("clear");
         printf("Please Enter Correct Type\n");
         CheckBillSelection(currentUser);
         return;
     }
 
+    reset();
+    
     switch (choice){
     case 1:
         PayBill(currentUser);
@@ -79,14 +83,15 @@ void PrintProductForUserSelection(User *currentUser){
     FILE *fp;
 
     fp = fopen("database/Product.csv","r");
-    printf("\n ****Product Information****\n");
+    printf("\n----------------  Product Information  ----------------\n");
+
     int i = 1;
     char line[1000];
     char *sp;
 
     while (fgets(line, 1000, fp) != NULL){
         // printf("\n%s\n",line);
-        printf("----------- Product Key : %d -------------\n\n",i);
+        printf("\n----------- Product Key : \033[0;32m%d\033[0m -------------\n\n",i);
 
         sp = strtok(line, ",");
         strcpy(product.productName, sp);
@@ -115,14 +120,14 @@ void PrintProductForUser(User *currentUser){
     FILE *fp;
 
     fp = fopen("database/Product.csv","r");
-    printf("\n ****Product Information****\n");
+    printf("\n----------------  Product Information  ----------------\n");
     int i = 1;
     char line[1000];
     char *sp;
 
     while (fgets(line, 1000, fp) != NULL){
         // printf("\n%s\n",line);
-        printf("----------- Product Key : %d -------------\n\n",i);
+        printf("\n----------- Product Key : \033[0;32m%d\033[0m -------------\n\n",i);
 
         sp = strtok(line, ",");
         strcpy(product.productName, sp);
@@ -202,13 +207,16 @@ void AddProductToCart(User *currentUser){
         printf("Enter Product Key To Add Product To Cart :\t");
         // scanf("%d",&productKey);
         fflush(stdin);
+        yellow();
         if(scanf("%d",&productKey) != 1) {
+            reset();
             system("clear");
             printf("Please Enter Correct Type\n");
             AddProductToCart(currentUser);
             return;
         }
 
+        reset();
 
         FindProductByProductKey(&productKey, targetProduct);
         // printf("TARGET PRODUCT %s\n",targetProduct->productName);
@@ -217,22 +225,28 @@ void AddProductToCart(User *currentUser){
             
             AddSaveProductCart(userCart, currentUser, targetProduct);
             printf("Do You Want To Continue This Process? [y/n]:\t");
+            yellow();
             if(scanf("%s",&continueOrNot) != 1) {
+                reset();
                 system("clear");
                 printf("Please Enter Correct Type\n");
                 AddProductToCart(currentUser);
                 return;
             }
+            reset();
         }
 
         else {
             printf("Do You Want To Continue This Process Or Not [y/n]:\t");
+            yellow();
             if(scanf("%s",&continueOrNot) != 1) {
+                reset();
                 system("clear");
                 printf("Please Enter Correct Type\n");
                 AddProductToCart(currentUser);
                 return;
             }
+            reset();
 
         }
 
@@ -257,14 +271,16 @@ void AddSaveProductCart(UserCart *userCart, User *currentUser, Product *targetPr
 
         printf("We Only have %d Item In Stock\n",targetProduct->productQuantity);
         printf("Please Enter How Many Do You Want To Add In Cart\t:\t");
-
+        yellow();
         if(scanf("%d",&quantity) != 1) {
+            reset();
             system("clear");
             printf("Please Enter Correct Type\n");
             AddSaveProductCart(userCart, currentUser, targetProduct);
             return;
         }
 
+        reset();
         if(quantity > targetProduct->productQuantity){
             printf("We Only have %d Item In Stock\n",targetProduct->productQuantity);
             printf("Please Enter Number Of Your Item Again\n");
@@ -279,7 +295,7 @@ void AddSaveProductCart(UserCart *userCart, User *currentUser, Product *targetPr
     userCart->totalCost = totalCost;
     userCart->totalInCart = quantity;
 
-    printf("\n========== Product Detail ==========\n");
+    printf("\n---------- Product Detail ----------\n");
     printf("\tCartOwner             :\t%s\n",userCart->cartOwner);
     printf("\tProductName           :\t%s\n",userCart->productName);
     printf("\tSinglePriceProduct    :\t%d\n",userCart->singlePriceProduct);
@@ -289,7 +305,10 @@ void AddSaveProductCart(UserCart *userCart, User *currentUser, Product *targetPr
     printf("\nConfirm To Add This Product? [y/n]:\t");
     
     char saveProductToCart;
+    fflush(stdin);
+    yellow();
     scanf("%s",&saveProductToCart);
+    reset();
     bool found = false;
 
     if(saveProductToCart == 'y'){
@@ -439,7 +458,7 @@ void PrintUserCart(User *currentUser){
     UserCart userCart;
 
     fp = fopen("database/UserCart.csv","r");
-    printf("\n =========   USER CART  ========== \n");
+    printf("\n------------------   USER CART  ------------------\n");
 
     char line[1000];
     char *sp;
@@ -452,7 +471,7 @@ void PrintUserCart(User *currentUser){
         strcpy(userCart.cartOwner, sp);
         if(strcmp(userCart.cartOwner, currentUser->userName) == 0){
             
-            printf("--------------- Item In Cart  :  %d ----------------\n\n",i);
+            printf("\n--------------- Item In Cart  :  \033[0;32m%d\033[0m ----------------\n\n",i);
             
             printf("\tCart Owner                  :\t%s\n", userCart.cartOwner);
 
@@ -530,7 +549,7 @@ void PrintUserCartSpecific(char *target, UserCart itemsInCart[], int *itemsCount
         
         if(strcmp(sp, target) == 0){
 
-            printf("--------------- Number of Items In Your Cart  :  %d ----------------\n\n",*itemsCount+1);
+            printf("\n--------------- Number of Items In Your Cart  :  \033[0;32m%d\033[0m ----------------\n\n",*itemsCount+1);
 
             strcpy(itemsInCart[*itemsCount].cartOwner, sp);
             printf("\tCart Owner                  :\t%s\n", itemsInCart[*itemsCount].cartOwner);
@@ -592,13 +611,17 @@ void PayBill(User *currentUser){
     printf("Do You Want To Confirmation Of Payment? [y/n] :\t");
 
     fflush(stdin);   
+    yellow();
     if(scanf("%c",&choice) != 1) {
+        reset();
         system("clear");
         printf("Please Enter Correct Type\n");
         PayBill(currentUser);
         return;
     } 
 
+    reset();
+    
     if(choice == 'y'){
 
         SaveUserPos(currentUser);
@@ -980,12 +1003,14 @@ void EditItemInCart(User *currentUser){
     int targetLine;
     fflush(stdin);
     printf("Enter Number Of Item That You Want To Edit :\t");
-
+    yellow();
     if(scanf("%d",&targetLine) != 1) {
+        reset();
         system("clear");
         printf("Please Enter Correct Type\n");
         EditItemInCart(currentUser);
     }
+    reset();
 
     fp = fopen("database/UserCart.csv","r");
     fpTemp = fopen("database/tempUserCart.csv","w");
@@ -1022,7 +1047,9 @@ void EditItemInCart(User *currentUser){
             found = 1;
 
             printf("Current Total In Cart Is %d: Please Enter New Value :\t", updateCart.totalInCart);
+            yellow();
             scanf("%d", &updateCart.totalInCart);
+            reset();
 
             updateCart.totalCost = updateCart.singlePriceProduct * updateCart.totalInCart;
 
@@ -1151,14 +1178,16 @@ void RemoveItemInCart(User *currentUser){
     
     int targetLine;
     fflush(stdin);
-    printf("Enter Number Of Item That You Want To Remove :\t");
-
+    printf("Enter Number Of Item That You Want To Remove :\t"); 
+    yellow();
     if(scanf("%d",&targetLine) != 1) {
+        reset();
         system("clear");
         printf("Please Enter Correct Type\n");
         RemoveItemInCart(currentUser);
     }
 
+    reset();
     fp = fopen("database/UserCart.csv","r");
     fpTemp = fopen("database/tempUserCart.csv","w");
     char *sp;

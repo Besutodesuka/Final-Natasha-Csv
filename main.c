@@ -34,17 +34,19 @@ int main(void){
     // printf("LOGIN OR NOT FROM WHILE %d\n",loginOrNot);
     if(loginOrNot == 0){
       // system("cls");
+      red();
       printf("========= Your UserName Or Password Is Wrong =========\n");
+      reset();
     }
   }
-  
-  if(loginOrNot == 1){
+  // printf("LOGIN OR NOT %d\n",loginOrNot);
+  if(loginOrNot == 2){
     PrintCurrentUserStruct(currentUser);
     AdminSelection(currentUser);
     // printf("Admin Login\n");
   }
 
-  else if(loginOrNot == 2){
+  else if(loginOrNot == 1){
     PrintCurrentUserStruct(currentUser);
     UserSelection(currentUser);
     // printf("User Login\n");

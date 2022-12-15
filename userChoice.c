@@ -29,7 +29,15 @@ void FirstTouch(int *loginOrNot, User *currentUser){
     printf("\n\nYour choice\t:\t");
 
     yellow();
-    scanf("%d",&choice);
+    if(scanf("%d",&choice) != 1) {
+        reset();
+        system("cls");
+        printf("Please Enter Correct Type\n");
+        FirstTouch(loginOrNot, currentUser);
+        return;
+    } 
+
+
     if(choice > 3 || choice < 0) {
         system("cls");
         printf("Please Enter Correct Type\n");
@@ -37,7 +45,7 @@ void FirstTouch(int *loginOrNot, User *currentUser){
         return;
     }
     reset();
-    fgetc(stdin);
+    // fgetc(stdin);
 
     switch (choice){
         case 1:
@@ -79,8 +87,10 @@ void UserSelection(User *currentUser){
     printf("\n(5) Exit");
     printf("\n\nYour choice\t:\t");
     fflush(stdin);
+    yellow();
     scanf("%d",&choice);
-
+    reset();
+    
     switch (choice){
     case 1:
         PrintProductForUserSelection(currentUser);

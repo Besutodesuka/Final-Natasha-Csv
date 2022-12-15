@@ -22,12 +22,15 @@ void SelectPointOfSales(){
     // printf("\n(3) Back To Admin Dashboard");
     printf("\n(3) Exit");
     printf("\n\nYour choice\t:\t");
+    yellow();
     if(scanf("%d",&choice) != 1) {
         system("clear");
+        reset();
         printf("Please Enter Correct Type\n");
         SelectPointOfSales();
         return;
     }
+    reset();
 
     switch (choice){
     case 1:
@@ -146,8 +149,10 @@ void CalculateMonth(char target[]){
     printf("(11) %s\n","November");
     printf("(12) %s\n","December");
     int choice;
-
+    printf("Your Input :\t");
+    yellow();
     scanf("%d",&choice);
+    reset();
     switch (choice){
     case 1:
         strcpy(target,"Jan");
@@ -247,21 +252,14 @@ void SpecificDayIn7Days(){
     CalculateDay(&lastLastTime, &lastTime, &selectDate);    
     
     int counter = 0;
-    printf("Last Time :\t%s\n",ctime(&lastTime));
-    printf("Last last Time :\t%s\n",ctime(&lastLastTime));
+    // printf("Last Time :\t%s\n",ctime(&lastTime));
+    // printf("Last last Time :\t%s\n",ctime(&lastLastTime));
     char last[50];
     strcpy(last, ctime(&selectDate));
     last[11] = '\0';
-    // char lastLast[50];
-    // strcpy(lastLast, ctime(&lastLastTime));
-    // lastLast[11] = '\0';
-    // printf("%.10s\n",lastLast);
 
 
     for (int i = 0; i < size; i++){
-        // char tempTime[50];
-        // strcpy(tempTime, ctime(&tempProduct[i].timeStamp));
-        // tempTime[11] = '\0';
 
         if(tempProduct[i].timeStamp > lastTime && tempProduct[i].timeStamp < lastLastTime){
             
@@ -269,13 +267,6 @@ void SpecificDayIn7Days(){
             counter++;
 
         }
-        
-        // if(strcmp(tempTime, last) == 0){
-        //     printSingleProduct(tempProduct[i]);
-        //     counter++;
-        // }
-
-        // printf("Time :\t%s\n",ctime(&tempProduct[i].timeStamp));
         
     }
     
@@ -285,10 +276,11 @@ void SpecificDayIn7Days(){
 }
 
 void CalculateDay(time_t *lastLastTime, time_t *lastTime, time_t *selectDate){
+
     int choice;
     int day = 24*60*60;
     time_t now = time(NULL);
-     struct tm *now_tm;  
+    struct tm *now_tm;  
     int hour;
     int minute;
     int second;
@@ -297,7 +289,6 @@ void CalculateDay(time_t *lastLastTime, time_t *lastTime, time_t *selectDate){
     minute = now_tm->tm_min;
     second = now_tm->tm_sec;
     
-   
     // time_t day1 = now - ((day) + (hour*60*60) + (minute*60) +  (second)); 
     // time_t day2 = now - ((day) + (hour*60*60) + (minute*60) +  (second)) + (almost24Hour*2); 
     // time_t day3 = now - ((day) + (hour*60*60) + (minute*60) +  (second)) + (almost24Hour*3); 
@@ -324,7 +315,11 @@ void CalculateDay(time_t *lastLastTime, time_t *lastTime, time_t *selectDate){
     printf("(5) %.10s\n",ctime(&day5));
     printf("(6) %.10s\n",ctime(&day6));
     printf("(7) %.10s\n",ctime(&day7));
+    
+    printf("Your Input :\t");    
+    yellow();
     scanf("%d",&choice);
+    reset();
     switch (choice){
     case 1:
         *lastLastTime =  now; 
