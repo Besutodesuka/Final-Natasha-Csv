@@ -180,7 +180,7 @@ void EditProductInDB(){
     
     PrintProduct();
 
-    printf("Enter Product Key That You Want To Edit\t:\t");
+    printf("Enter Product Number That You Want To Edit\t:\t");
     char targetProduct[50];
     int targetLine;
 

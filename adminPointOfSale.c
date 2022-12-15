@@ -12,13 +12,15 @@ void CalculateDay(time_t *lastTime, time_t *lastLastTime, time_t *selectDate);
 void CalculateMonth(char target[]);
 
 void SelectPointOfSales(){
-
     int choice;
     fflush(stdin);
+    purple();
     printf("\n\nHey Admin! What you want to do here");
+    reset();
     printf("\n(1) See Some Specific Days In 7 Days");
     printf("\n(2) See Some Week In Month");
-    printf("\n(3) Exist");
+    // printf("\n(3) Back To Admin Dashboard");
+    printf("\n(3) Exit");
     printf("\n\nYour choice\t:\t");
     if(scanf("%d",&choice) != 1) {
         system("clear");
@@ -42,7 +44,7 @@ void SelectPointOfSales(){
         break;
 
     default:
-        printf("Please Select A Corrent Choice");
+        printf("Please Select A Correct Choice");
         SelectPointOfSales();
         break;
     }
@@ -120,7 +122,7 @@ void SpecificWeekInMonth(){
 
     }
 
-    SelectPointOfSales();
+    // SelectPointOfSales();
     return;
     
     // printf("There Are :\t %d Transection In %.10s To",counter, ctime(&lastTime));
@@ -278,7 +280,7 @@ void SpecificDayIn7Days(){
     }
     
     printf("There Are :\t %d Transection In %.10s\n",counter, ctime(&selectDate));
-    SelectPointOfSales();
+    // SelectPointOfSales();
     return;
 }
 

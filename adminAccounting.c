@@ -16,11 +16,13 @@ void SelectAccounting(){
 
     int choice;
     fflush(stdin);
+    purple();
     printf("\n\nHey Admin! What you want to do here");
+    reset();
     printf("\n(1) See All Profit");
     printf("\n(2) Profit Specific Product");
     printf("\n(3) Profit Time Range");
-    printf("\n(4) Exist");
+    printf("\n(4) Exit");
     printf("\n\nYour choice\t:\t");
     if(scanf("%d",&choice) != 1) {
         system("clear");
@@ -50,14 +52,13 @@ void SelectAccounting(){
 
     default:
         printf("Please Select A Corrent Choice");
-        SelectAccounting();
+        // SelectAccounting();
         break;
     }
 
 }
 
 void SeeAllProfit(){
-
     FILE *fp;
     fp = fopen("database/UserPos.csv","r");    
     char line[1000];
@@ -146,7 +147,7 @@ void SeeAllProfit(){
     printf("Product Profit Of All Time  :\t%d\n", sumProfit);
 
 
-    SelectAccounting();
+    // SelectAccounting();
     return;
 }
 
@@ -245,7 +246,7 @@ void ProfitByProductName(){
         }
     }
     
-    SelectAccounting();
+    // SelectAccounting();
     return;
 
 }
@@ -388,7 +389,7 @@ void ProfitTimeRange(){
     printf("Product Cost    :\t%d\n",sumCost);
     printf("Product Profit  :\t%d\n",sumProfit);
 
-    SelectAccounting();
+    // SelectAccounting();
     return;
 }
 

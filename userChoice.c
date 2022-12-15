@@ -25,12 +25,13 @@ void FirstTouch(int *loginOrNot, User *currentUser){
     printf("\t  Please Select Your Prefered Operation\n\n");
     printf("-> (1) Login\n");
     printf("-> (2) Register\n");
-    printf("-> (3) Exist\n");
+    printf("-> (3) Exit\n");
     printf("\n\nYour choice\t:\t");
 
     yellow();
-    if(scanf("%d",&choice) != 1) {
-        system("clear");
+    scanf("%d",&choice);
+    if(choice != 1) {
+        system("cls");
         printf("Please Enter Correct Type\n");
         FirstTouch(loginOrNot, currentUser);
         return;
@@ -46,7 +47,7 @@ void FirstTouch(int *loginOrNot, User *currentUser){
         break;
         
         case 2:
-        Register(loginOrNot);
+        Register(loginOrNot, currentUser);
         // printf("LOGIN OR NOT FROM CASE REGISTER %d\n",*loginOrNot);
         break;
 
@@ -68,12 +69,14 @@ void UserSelection(User *currentUser){
     int choice;
     
     // while (choice != 1 || choice != 2){
+    purple();
     printf("\n\nWhat you want to do here");
+    reset();
     printf("\n(1) See Other Product");
     printf("\n(2) Add Product To Cart");
     printf("\n(3) Check Your Cart");
     printf("\n(4) Check bill");
-    printf("\n(5) Exist");
+    printf("\n(5) Exit");
     printf("\n\nYour choice\t:\t");
     fflush(stdin);
     scanf("%d",&choice);

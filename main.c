@@ -34,7 +34,7 @@ int main(void){
     // printf("LOGIN OR NOT FROM WHILE %d\n",loginOrNot);
     if(loginOrNot == 0){
       // system("cls");
-      printf("========= Your UserName Or Password Is Wronge =========\n");
+      printf("========= Your UserName Or Password Is Wrong =========\n");
     }
   }
   
@@ -49,9 +49,6 @@ int main(void){
     UserSelection(currentUser);
     // printf("User Login\n");
   }
-
- 
-
   return 0;
 }
 

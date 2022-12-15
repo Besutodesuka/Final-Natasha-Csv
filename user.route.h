@@ -52,7 +52,7 @@ void AdminSelection(User *currentUser);
 
 // ============ Authentication ============
 
-void Register(int *loginOrNot);
+void Register(int *loginOrNot, User *currentUser);
 void Login(int *loginOrNot, User *currentUser);
 
 // ========== END Authentication ==========

@@ -26,12 +26,13 @@ void SaveProductToCart(UserCart *userCart);
 void CheckBillSelection(User *currentUser){
     
     int choice;
-
-    printf("\n\nWhat you want to do here");
+    purple();
+    printf("What you want to do here");
+    reset();
     printf("\n(1) Pay Bill");
     printf("\n(2) Edit Item In Cart");
     printf("\n(3) Remove Item In Cart");
-    printf("\n(4) Exist");
+    printf("\n(4) Exit");
     printf("\n\nYour choice\t:\t");
     fflush(stdin);
     
@@ -55,11 +56,11 @@ void CheckBillSelection(User *currentUser){
         RemoveItemInCart(currentUser);
         break;
 
-    case 4:
-        // CheckBill(currentUser);
-        break;
+    // case 4:
+    //     // CheckBill(currentUser);
+    //     break;
     
-    case 5:
+    case 4:
         printf("\n\t\t Bye Bye :)\n\n");
         exit(0);
         break;
@@ -512,7 +513,6 @@ void CheckBill(User *currentUser){
 
 
 void PrintUserCartSpecific(char *target, UserCart itemsInCart[], int *itemsCount, int *sumPrice){
-
     FILE *fp;
     // UserCart userCart;
 
@@ -608,6 +608,7 @@ void PayBill(User *currentUser){
     }
 
     else if(choice == 'n'){
+        UserSelection(currentUser);
         return;
     }
 

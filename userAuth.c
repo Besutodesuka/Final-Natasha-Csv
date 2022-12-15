@@ -90,7 +90,7 @@ void Login(int *loginOrNot, User *currentUser){
 
 }
 
-void Register(int *loginOrNot){
+void Register(int *loginOrNot, User *currentUser){
     User user;
     int checkRole;
     FILE *fp;
@@ -155,6 +155,10 @@ void Register(int *loginOrNot){
             user.phone,
             user.role
         );
+    strcpy(currentUser->userName, user.userName);
+    strcpy(currentUser->email, user.email);
+    strcpy(currentUser->phone, user.phone);
+    strcpy(currentUser->role, user.role);
     if(fwrite != 0){
         printf("\nSuccessfully saved");
     }
