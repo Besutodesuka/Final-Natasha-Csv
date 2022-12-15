@@ -61,13 +61,21 @@ void PrintUserData(){
         
         sp = strtok(NULL, ",");
         strcpy(users[i].role, sp);
-        printf("--------------\tLine %d\t--------------\n",i);
-        printf("UserName        :\t%s\n",users[i].userName);
-        printf("Password        :\t%s\n",users[i].password);
-        printf("Email           :\t%s\n",users[i].email);
-        printf("Phone           :\t%s\n",users[i].phone);
-        printf("Role            :\t%s\n",users[i].role);
-        
+
+        printf("-----------  Number Of User : \033[0;32m%d\033[0m  --------------\n",i);
+        reset();
+        printf("UserName        :\t\033[0;33m%s\n",users[i].userName);
+        reset();
+        printf("Password        :\t\033[0;33m%s\n",users[i].password);
+        reset();
+        printf("Email           :\t\033[0;33m%s\n",users[i].email);
+        reset();
+        printf("Phone           :\t\033[0;33m%s\n",users[i].phone);
+        reset();
+        printf("Role            :\t\033[0;33m%s",users[i].role);
+        reset();
+        printf("-----------------------------------------------\n\n");
+
         // printf("%s %s %s %s %s",users[i].userName, users[i].password, users[i].email, users[i].phone, users[i].role);
 
         i++;
@@ -127,7 +135,10 @@ void EditUser(){
     char *sp;
     printf("Enter Name That You Want To Update\t:\t");
     fflush(stdin);
+    yellow();
     fgets(targetUser, 50, stdin);
+    reset();
+
     targetUser[strlen(targetUser)-1] = 0;
     bool keepReading = true;
 
@@ -160,7 +171,7 @@ void EditUser(){
 
             found = 1;
 
-            printf("Current value for username is %s; please enter new value:\t", updateUser.userName);
+            printf("Current Value For Username Is \033[0;34m%s\033[0m; Please Enter New Value:\t", updateUser.userName);
             fflush(stdin);
             yellow();
             fgets(updateUser.userName, 50, stdin); 
@@ -168,12 +179,12 @@ void EditUser(){
             updateUser.userName[strlen(updateUser.userName)-1] = 0;
             // scanf("%s", &updateUser.userName);
 
-            printf("Current value for email is %s; please enter new value:\t", updateUser.email );
+            printf("Current Value For Email Is \033[0;34m%s\033[0m; Please Enter New Value:\t", updateUser.email );
             yellow();
             scanf("%s", &updateUser.email);
             reset();
 
-            printf("Current value for phone is %s; please enter new value:\t", updateUser.phone );
+            printf("Current Value For Phone Is \033[0;34m%s\033[0m; Please Enter New Value:\t", updateUser.phone );
             yellow();
             scanf("%s", &updateUser.phone);
             reset();
@@ -250,7 +261,7 @@ void RemoveUser(){
 
     int targetLine;
     fflush(stdin);
-    printf("Enter Number Of Item That You Want To Edit :\t");
+    printf("Enter Number Of User That You Want To Remove :\t");
 
     yellow();
     if(scanf("%d",&targetLine) != 1) {
@@ -356,7 +367,11 @@ void RemoveUser(){
         fclose(fpTemp);
     }
     else {
-        printf("DATA NOT FOUND\n");
+        printf("\n----------------------------------------------\n");
+        red();
+        printf("                  DATA NOT FOUND     ");
+        reset();
+        printf("----------------------------------------------\n\n");
     }
 
     return;

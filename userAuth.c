@@ -18,9 +18,13 @@ void Login(int *loginOrNot, User *currentUser){
 
     char userName[50];
     char password[50];
-    red();
-    printf("\n------------- Please Fill UserName And Password ---------------\n\n");
+    printf("\n----------------------------------------------\n");
+    purple();
+    printf("       Please Fill UserName And Password\n");
     reset();
+    printf("----------------------------------------------\n\n");
+    // printf("\n------------- Please Fill UserName And Password ---------------\n\n");
+
     printf("UserName\t:\t");
     fflush(stdin);
     yellow();
@@ -62,9 +66,12 @@ void Login(int *loginOrNot, User *currentUser){
         user.role[strlen(user.role)-1] = 0;
 
         if(strcmp(user.userName, userName) == 0 && strcmp(user.password, password) == 0){
+            // printf("\n----------------------------------------------\n");
             green();
-            printf("\n\t\t     Login SuccessFully!\n");
+            printf("\n\n\n                 Login SuccessFully\n\n\n");
             reset();
+            // printf("----------------------------------------------\n\n");
+
             strcpy(currentUser->userName, user.userName);
             strcpy(currentUser->email, user.email);
             strcpy(currentUser->phone, user.phone);

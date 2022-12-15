@@ -17,7 +17,7 @@ void SelectAccounting(){
     int choice;
     fflush(stdin);
     purple();
-    printf("\n\nHey Admin! What you want to do here");
+    printf("\n\nHey Admin! What You Want To Do Here?");
     reset();
     printf("\n(1) See All Profit");
     printf("\n(2) Profit Specific Product");
@@ -32,6 +32,7 @@ void SelectAccounting(){
         SelectPointOfSales();
         return;
     }
+    reset();
 
     switch (choice){
     case 1:
@@ -143,13 +144,14 @@ void SeeAllProfit(){
             }
         }
     }
-
-    printf("Money Receieve Of All Time  :\t\033[0;33m%d\n", moneyReceive);
+    printf("\n--------------------------------------------\n");
+    printf("\033[0;33mMoney Receieve\033[0m Of All Time  :\t\033[0;33m%d\n", moneyReceive);
     reset();
-    printf("Product Cost Of All Time    :\t\033[0;31m%d\n", sumCost);
+    printf("\033[0;31mProduct Cost\033[0m Of All Time    :\t\033[0;31m%d\n", sumCost);
     reset();
-    printf("Product Profit Of All Time  :\t\033[0;32m%d\n", sumProfit);
+    printf("\033[0;32mProduct Profit\033[0m Of All Time  :\t\033[0;32m%d\n", sumProfit);
     reset();
+    printf("--------------------------------------------\n");
 
     // SelectAccounting();
     return;
@@ -240,15 +242,20 @@ void ProfitByProductName(){
 
     for (int i = 0; i < size; i++){
         if(strcmp(tempProduct[i].productName, "None") != 0){
-            printf("Rank %d\n",counter);
-            printf("Product Name    :\t%s\n",tempProduct[i].productName);
-            printf("Money Receive   :\t\033[0;33m%d\n",tempProduct[i].productPrice * tempProduct[i].totalInCart);
+            printf("------------------------------\n");
+            printf("Rank \033[0;35m%d\n",counter);
             reset();
-            printf("Product Cost    :\t\033[0;31m%d\n",tempProduct[i].productCost * tempProduct[i].totalInCart);
+            printf("Product Name    :\t\033[0;34m%s\n",tempProduct[i].productName);
             reset();
-            printf("Product ProFit  :\t\033[0;32m%d\n",tempProduct[i].productProfit * tempProduct[i].totalInCart);
+            printf("\033[0;33mMoney Receieve\033[0m  :\t\033[0;33m%d\n",tempProduct[i].productPrice * tempProduct[i].totalInCart);
             reset();
-            printf("\n\n");
+            printf("\033[0;31mProduct Cost\033[0m    :\t\033[0;31m%d\n",tempProduct[i].productCost * tempProduct[i].totalInCart);
+            reset();
+            printf("\033[0;32mProduct Profit\033[0m  :\t\033[0;32m%d\n",tempProduct[i].productProfit * tempProduct[i].totalInCart);
+            reset();
+            printf("------------------------------\n\n");
+            
+            
             counter++;
         }
     }
@@ -391,14 +398,17 @@ void ProfitTimeRange(){
             // printf("\n\n");
         }
     }
-    printf("\nAccounting In %s \n",fullTarget);
-    printf("Money Receive   :\t\033[0;33m%d\n",moneyReceive);
+    printf("\n--------------------------------------------\n");
+    printf("Accounting In \033[0;34m%s \n",fullTarget);
     reset();
-    printf("Product Cost    :\t\033[0;31m%d\n",sumCost);
+    printf("\033[0;33mMoney Receieve\033[0m Of All Time  :\t\033[0;33m%d\n", moneyReceive);
     reset();
-    printf("Product Profit  :\t\033[0;32m%d\n",sumProfit);
+    printf("\033[0;31mProduct Cost\033[0m Of All Time    :\t\033[0;31m%d\n", sumCost);
     reset();
-    
+    printf("\033[0;32mProduct Profit\033[0m Of All Time  :\t\033[0;32m%d\n", sumProfit);
+    reset();
+    printf("--------------------------------------------\n");
+
 
     // SelectAccounting();
     return;
@@ -406,7 +416,9 @@ void ProfitTimeRange(){
 
 
 void CalculateMonthAccounting(char target[], char fullTarget[]){
-    printf("------------- What Month Do You Want -------------\n");
+    purple();
+    printf("What Month Do You Want To See Accounting\n");
+    reset();
     printf("(1) %s\n","January");
     printf("(2) %s\n","February");
     printf("(3) %s\n","March");
@@ -419,9 +431,9 @@ void CalculateMonthAccounting(char target[], char fullTarget[]){
     printf("(10) %s\n","October");
     printf("(11) %s\n","November");
     printf("(12) %s\n","December");
-    
     fflush(stdin);
-    printf("Your Input :\t");
+    printf("\nYour Input :\t");
+
     int choice;
     yellow();
     scanf("%d",&choice);

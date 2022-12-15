@@ -7,9 +7,11 @@
 #include "user.route.h"
 
 void PrintCurrentUserStruct(User *currentUser){
+  printf("\n----------------------------------------------\n");
   blue();
-  printf("\n----------------------  Current User  ----------------------\n\n");
+  printf("                  Current User\n");
   reset();
+  printf("----------------------------------------------\n\n");
   printf("UserName  \t:\t\033[0;33m%s \033[0m\n",currentUser->userName);
   printf("Email     \t:\t\033[0;33m%s \033[0m\n",currentUser->email);
   printf("Phone     \t:\t\033[0;33m%s \033[0m\n",currentUser->phone);
@@ -39,7 +41,7 @@ int main(void){
       reset();
     }
   }
-  printf("LOGIN OR NOT %d\n",loginOrNot);
+  // printf("LOGIN OR NOT %d\n",loginOrNot);
   if(loginOrNot == 2){
     PrintCurrentUserStruct(currentUser);
     AdminSelection(currentUser);

@@ -11,3 +11,7 @@ Purple \033[0;35m
 Cyan \033[0;36m
 White \033[0;37m
 
+
+void reset () {
+  printf("\033[0m");
+}

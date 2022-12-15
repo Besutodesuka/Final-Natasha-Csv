@@ -15,7 +15,7 @@ void SelectPointOfSales(){
     int choice;
     fflush(stdin);
     purple();
-    printf("\n\nHey Admin! What you want to do here");
+    printf("\n\nHey Admin! What You Want To Do Here?");
     reset();
     printf("\n(1) See Some Specific Days In 7 Days");
     printf("\n(2) See Some Week In Month");
@@ -105,31 +105,17 @@ void SpecificWeekInMonth(){
         tempTime[7] = '\0';
         char result[50] = {tempTime[4], tempTime[5], tempTime[6],'\0'};
 
-        // printf("THIS IS target %s\n",target);
-        // printf("THIS IS Result %s\n",result);
-        // printf("THIS IS compare %d\n\n\n",strcmp(tempTime, result));
         if(strcmp(target, result) == 0){
          
             printSingleProduct(tempProduct[i]);
             counter++;
 
         }
-        // printSingleProduct(tempProduct[i]);
-
-        // if(tempProduct[i].timeStamp > lastTime && tempProduct[i].timeStamp < lastLastTime){
-
-            // printSingleProduct(tempProduct[i]);
-            // counter++;
-            
-        // }
 
     }
 
-    // SelectPointOfSales();
     return;
-    
-    // printf("There Are :\t %d Transection In %.10s To",counter, ctime(&lastTime));
-    // printf("%.10s\n", ctime(&lastLastTime));
+  
 
 }
 
@@ -148,11 +134,14 @@ void CalculateMonth(char target[]){
     printf("(10) %s\n","October");
     printf("(11) %s\n","November");
     printf("(12) %s\n","December");
+
     int choice;
-    printf("Your Input :\t");
+    printf("\nYour Input :\t");
     yellow();
     scanf("%d",&choice);
     reset();
+
+    printf("\n");
     switch (choice){
     case 1:
         strcpy(target,"Jan");
@@ -252,8 +241,6 @@ void SpecificDayIn7Days(){
     CalculateDay(&lastLastTime, &lastTime, &selectDate);    
     
     int counter = 0;
-    // printf("Last Time :\t%s\n",ctime(&lastTime));
-    // printf("Last last Time :\t%s\n",ctime(&lastLastTime));
     char last[50];
     strcpy(last, ctime(&selectDate));
     last[11] = '\0';
@@ -270,7 +257,8 @@ void SpecificDayIn7Days(){
         
     }
     
-    printf("There Are :\t %d Transection In %.10s\n",counter, ctime(&selectDate));
+    printf("There Are : \033[0;33m%d \033[0mTransection In \033[0;33m%.10s\n",counter, ctime(&selectDate));
+    reset();
     // SelectPointOfSales();
     return;
 }
@@ -307,7 +295,9 @@ void CalculateDay(time_t *lastLastTime, time_t *lastTime, time_t *selectDate){
     // printf("%d\n",size);
 
     int almost24Hour = 86399;
-    printf("------------- What Date Point Of Sales Do You Want -------------\n");
+    purple();
+    printf("What Date Point Of Sales Do You Want\n");
+    reset();
     printf("(1) %.10s\n",ctime(&day1));
     printf("(2) %.10s\n",ctime(&day2));
     printf("(3) %.10s\n",ctime(&day3));
@@ -316,8 +306,9 @@ void CalculateDay(time_t *lastLastTime, time_t *lastTime, time_t *selectDate){
     printf("(6) %.10s\n",ctime(&day6));
     printf("(7) %.10s\n",ctime(&day7));
     
-    printf("Your Input :\t");    
+    printf("\nYour Input :\t");    
     yellow();
+    fflush(stdin);
     scanf("%d",&choice);
     reset();
     switch (choice){
@@ -380,12 +371,19 @@ void CalculateDay(time_t *lastLastTime, time_t *lastTime, time_t *selectDate){
 
 
 void printSingleProduct(UserPOS Product){
-
-    printf("\tCart Owner                  :\t%s\n", Product.cartOwner);
-    printf("\tProduct Name                :\t%s\n", Product.productName);
-    printf("\tSingle Price Product        :\t%d\n", Product.singlePriceProduct);
-    printf("\tTotal In Cart               :\t%d\n", Product.totalInCart);
-    printf("\tTotal Cost                  :\t%d\n", Product.totalCost);
-    printf("\tTime Stamps                 :\t%s\n", ctime(&Product.timeStamp));
+    printf("---------------------------------------------------------\n");
+    printf("Cart Owner            :\t\033[0;33m%s\n", Product.cartOwner);
+    reset();
+    printf("Product Name          :\t\033[0;33m%s\n", Product.productName);
+    reset();
+    printf("Single Price Product  :\t\033[0;33m%d\n", Product.singlePriceProduct);
+    reset();
+    printf("Total In Cart         :\t\033[0;33m%d\n", Product.totalInCart);
+    reset();
+    printf("Total Cost            :\t\033[0;33m%d\n", Product.totalCost);
+    reset();
+    printf("Time Stamps           :\t\033[0;33m%s", ctime(&Product.timeStamp));
+    reset();
+    printf("---------------------------------------------------------\n\n");
 
 }

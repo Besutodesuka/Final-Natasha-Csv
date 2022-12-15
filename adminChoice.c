@@ -16,7 +16,7 @@ void AdminSelection(User *currentUser){
     // system("cls");
     fflush(stdin);
     purple();
-    printf("\n\nHey Admin! What you want to do here");
+    printf("\n\nHey Admin! What Do You Want To Do Here?");
     reset();
     printf("\n-> (1) See All Command User");
     printf("\n-> (2) See All Command Product");
@@ -76,7 +76,7 @@ void CommandUser(User *currentUser){
     int choice;
     // while (choice != 5){
     purple();
-    printf("\n\nHey Admin! What you want to do for user?");
+    printf("\n\nHey Admin! What You Want To Do Here?");
     reset();
     printf("\n(1) Number User");
     printf("\n(2) PrintDb User");
@@ -93,7 +93,11 @@ void CommandUser(User *currentUser){
     switch (choice){
     case 1:
 
-        printf("Number Of User %d\n",NumberOfUser());
+        printf("\n----------------------------------------------\n");
+        // green();
+        printf("            Number Of User :\t\033[0;32m%d\n",NumberOfUser());
+        reset();
+        printf("----------------------------------------------\n\n");
         AdminSelection(currentUser);
         return;
         break;

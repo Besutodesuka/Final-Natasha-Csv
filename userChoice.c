@@ -19,10 +19,15 @@ void FirstTouch(int *loginOrNot, User *currentUser){
     int choice;
     system("cls");
     green();
-    printf("---------------    WELCOME TO SLEEP SHOP   ---------------\n\n");
+    printf("----------------------------------------------\n");
     red();
+    printf("            WELCOME TO SLEEP SHOP\n");
+    green();
+    printf("----------------------------------------------\n\n");
     reset();
-    printf("\t  Please Select Your Prefered Operation\n\n");
+    purple();
+    printf("Please Select Your Prefered Operation\n\n");
+    reset();
     printf("-> (1) Login\n");
     printf("-> (2) Register\n");
     printf("-> (3) Exit\n");
@@ -78,7 +83,7 @@ void UserSelection(User *currentUser){
     
     // while (choice != 1 || choice != 2){
     purple();
-    printf("\n\nWhat you want to do here");
+    printf("\n\nWhat You Want To Do Here?");
     reset();
     printf("\n(1) See Other Product");
     printf("\n(2) Add Product To Cart");
@@ -97,7 +102,7 @@ void UserSelection(User *currentUser){
         break;
 
     case 2:
-        printf("ADD PRODUCT RUNNING\n");
+        // printf("ADD PRODUCT RUNNING\n");
         AddProductToCart(currentUser);
         break;
 
