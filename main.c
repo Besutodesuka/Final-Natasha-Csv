@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include "admin.route.h"
 #include <string.h>
@@ -39,7 +38,7 @@ int main(void){
       reset();
     }
   }
-  printf("LOGIN OR NOT %d\n",loginOrNot);
+
   if(loginOrNot == 2){
     PrintCurrentUserStruct(currentUser);
     AdminSelection(currentUser);
@@ -82,7 +81,6 @@ int main(void){
       printf("\n\nYour choice\t:\t");
       scanf("%d",&choice);
       fgetc(stdin);
-
       switch (choice){
         case 1:
           loginOrNot = Login();
@@ -91,7 +89,6 @@ int main(void){
         case 2:
           loginOrNot = Register();
           break;
-
         case 3:
           PrintUserData();
           break;
@@ -100,7 +97,6 @@ int main(void){
            
             printf("Number Of User %d\n",NumberOfUser());
             break;
-
         case 5:
             EditUser();
             break;
@@ -108,7 +104,6 @@ int main(void){
         case 6:
             RemoveUser();
             break;
-
         case 7:
           AddProduct();
           break;
@@ -124,22 +119,18 @@ int main(void){
         case 10:
           RemoveProduct();
           break;
-
         case 11:
           printf("\n\t\t Bye Bye :)\n\n");
           exit(0);
           break;
-
         default:
           printf("Your input is invalid, please try again");
           break;
       }
     }
-
     printf("\nDo you want to perform another operation?[y/n]:\t");
     scanf("%s",&keepGoingOrNot);
   }
   return 0;
 }
-
  */
