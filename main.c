@@ -39,7 +39,7 @@ int main(void){
       reset();
     }
   }
-  // printf("LOGIN OR NOT %d\n",loginOrNot);
+  printf("LOGIN OR NOT %d\n",loginOrNot);
   if(loginOrNot == 2){
     PrintCurrentUserStruct(currentUser);
     AdminSelection(currentUser);
