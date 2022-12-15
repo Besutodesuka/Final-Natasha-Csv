@@ -72,12 +72,12 @@ void Login(int *loginOrNot, User *currentUser){
 
             if(strcmp(user.role, "admin") == 0){
                 // printf("Role Admin \n");
-                *loginOrNot = 1;
+                *loginOrNot = 2;
                 break;
             }
             else if(strcmp(user.role, "user") == 0){
                 // printf("Role User \n");
-                *loginOrNot = 2;
+                *loginOrNot = 1;
                 break;
             }
         }
@@ -103,29 +103,40 @@ void Register(int *loginOrNot, User *currentUser){
     }
 
     // system("cls");
-    printf("\n============Register Page============");
+    green();
+    printf("\n-------------------\tRegister Page\t-------------------");
+    reset();
 
     printf("\nPlease enter your userName:\t");
+    yellow();
     fgets(user.userName,50,stdin);
+    reset();
     user.userName[strlen(user.userName)-1] = 0;
     
     printf("\nPlease enter your password:\t");
+    yellow();
     fgets(user.password,50,stdin);
+    reset();
     user.password[strlen(user.password)-1] = 0;
     
     printf("\nPlease enter your email:\t");
+    yellow();
     fgets(user.email,50,stdin);
+    reset();
     user.email[strlen(user.email)-1] = 0;
 
     
     printf("\nPlease enter your phone:\t");
+    yellow();
     fgets(user.phone,50,stdin);
+    reset();
     user.phone[strlen(user.phone)-1] = 0;
 
     
     printf("\nPlease enter your role [1 = admin, 0 = user]:\t");
+    yellow();
     scanf("%d",&checkRole);
-
+    reset();
     
     if(checkRole == 1){
       strcpy(user.role,"admin");
@@ -144,7 +155,10 @@ void Register(int *loginOrNot, User *currentUser){
     printf("\n\n");
     printf("\nDo you want to save the invoice [y/n]:\t");
     char saveBill;
+    fflush(stdin);
+    yellow();
     scanf("%s",&saveBill);
+    reset();
 
     if(saveBill == 'y'){
         fprintf(fp,
@@ -155,10 +169,12 @@ void Register(int *loginOrNot, User *currentUser){
             user.phone,
             user.role
         );
+
     strcpy(currentUser->userName, user.userName);
     strcpy(currentUser->email, user.email);
     strcpy(currentUser->phone, user.phone);
     strcpy(currentUser->role, user.role);
+
     if(fwrite != 0){
         printf("\nSuccessfully saved");
     }
@@ -182,7 +198,6 @@ void Register(int *loginOrNot, User *currentUser){
         return;
     }
     }
-    *loginOrNot = 0;
     return;
 
 }
