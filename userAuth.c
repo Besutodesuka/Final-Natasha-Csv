@@ -109,6 +109,7 @@ void Register(int *loginOrNot, User *currentUser){
 
     printf("\nPlease enter your userName:\t");
     yellow();
+    fflush(stdin);
     fgets(user.userName,50,stdin);
     reset();
     user.userName[strlen(user.userName)-1] = 0;
@@ -188,7 +189,7 @@ void Register(int *loginOrNot, User *currentUser){
     }
     fclose(fp);
 
-    if(checkRole == 1){
+    if(strcmp(user.role, "admin") == 0){
         *loginOrNot = 2;
         return;
     }
