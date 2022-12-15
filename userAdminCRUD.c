@@ -45,7 +45,7 @@ void PrintUserData(){
     while (fgets(line, 1000, fp) != NULL){
         // printf("\n%s",line);
 
-        printf("----------- User Line : %d -------------\n\n",i);
+        // printf("----------- User Line : %d -------------\n\n",i);
 
         sp = strtok(line, ",");
         strcpy(users[i].userName, sp);
