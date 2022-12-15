@@ -30,7 +30,7 @@ void FirstTouch(int *loginOrNot, User *currentUser){
 
     yellow();
     scanf("%d",&choice);
-    if(choice != 1) {
+    if(choice > 3 || choice < 0) {
         system("cls");
         printf("Please Enter Correct Type\n");
         FirstTouch(loginOrNot, currentUser);
@@ -41,24 +41,24 @@ void FirstTouch(int *loginOrNot, User *currentUser){
 
     switch (choice){
         case 1:
-        Login(loginOrNot, currentUser);
-        // printf("LOGIN %d\n",Login(loginOrNot));
-        // printf("LOGIN OR NOT FROM CASE LOGIN %d\n",*loginOrNot);
-        break;
+          Login(loginOrNot, currentUser);
+          // printf("LOGIN %d\n",Login(loginOrNot));
+          // printf("LOGIN OR NOT FROM CASE LOGIN %d\n",*loginOrNot);
+          break;
         
         case 2:
-        Register(loginOrNot, currentUser);
-        // printf("LOGIN OR NOT FROM CASE REGISTER %d\n",*loginOrNot);
-        break;
+          Register(loginOrNot, currentUser);
+          // printf("LOGIN OR NOT FROM CASE REGISTER %d\n",*loginOrNot);
+          break;
 
         case 3:
-        printf("\n\t\t Bye Bye :)\n\n");
-        exit(0);
-        break;
+          printf("\n\t\t Bye Bye :)\n\n");
+          exit(0);
+          break;
 
         default:
-        printf("Your input is invalid, please try again");
-        break;
+          printf("Your input is invalid, please try again");
+          break;
     }
     // printf("LOGIN OR NOT %d\n",*loginOrNot);
     return;
