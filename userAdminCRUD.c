@@ -270,7 +270,7 @@ void RemoveUser(){
     yellow();
     if(scanf("%d",&targetLine) != 1) {
         reset();
-        system("clear");
+        system("cls");
         printf("Please Enter Correct Type\n");
         RemoveUser();
     }

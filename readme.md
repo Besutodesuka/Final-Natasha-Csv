@@ -10,8 +10,13 @@ Blue \033[0;34m
 Purple \033[0;35m
 Cyan \033[0;36m
 White \033[0;37m
+reset \033[0m
 
 
-void reset () {
-  printf("\033[0m");
-}
+user:mix
+password:123
+role:admin
+
+user:pal
+password:123
+role:user

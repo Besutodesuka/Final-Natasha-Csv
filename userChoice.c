@@ -119,7 +119,7 @@ void UserSelection(User *currentUser){
         printf("\n\t\t Bye Bye :)\n\n");
         exit(0);
         break;
-
+    
     default:
         printf("Please Select A Corrent Choice");
         UserSelection(currentUser);

@@ -39,7 +39,7 @@ void CheckBillSelection(User *currentUser){
     yellow();
     if(scanf("%d",&choice) != 1) {
         reset();
-        system("clear");
+        system("cls");
         printf("Please Enter Correct Type\n");
         CheckBillSelection(currentUser);
         return;
@@ -224,8 +224,19 @@ void AddProductToCart(User *currentUser){
         yellow();
         if(scanf("%d",&productKey) != 1) {
             reset();
-            system("clear");
-            printf("Please Enter Correct Type\n");
+            system("cls");
+            red();
+            printf("Please Enter Correct Type \n");
+            reset();
+            AddProductToCart(currentUser);
+            return;
+        }
+
+        if(productKey <= 0){
+            system("cls");
+            red();
+            printf("Please Enter Correct Type \n");
+            reset();
             AddProductToCart(currentUser);
             return;
         }
@@ -242,8 +253,10 @@ void AddProductToCart(User *currentUser){
             yellow();
             if(scanf("%s",&continueOrNot) != 1) {
                 reset();
-                system("clear");
-                printf("Please Enter Correct Type\n");
+                system("cls");
+                red();
+                printf("Please Enter Correct Type \n");
+                reset();
                 AddProductToCart(currentUser);
                 return;
             }
@@ -255,8 +268,10 @@ void AddProductToCart(User *currentUser){
             yellow();
             if(scanf("%s",&continueOrNot) != 1) {
                 reset();
-                system("clear");
-                printf("Please Enter Correct Type\n");
+                system("cls");
+                red();
+                printf("Please Enter Correct Type \n");
+                reset();
                 AddProductToCart(currentUser);
                 return;
             }
@@ -288,15 +303,26 @@ void AddSaveProductCart(UserCart *userCart, User *currentUser, Product *targetPr
         yellow();
         if(scanf("%d",&quantity) != 1) {
             reset();
-            system("clear");
-            printf("Please Enter Correct Type\n");
+            system("cls");
+            red();
+            printf("Please Enter Correct Type \n");
+            reset();
+            AddSaveProductCart(userCart, currentUser, targetProduct);
+            return;
+        }
+        reset();
+
+        if(quantity <= 0){
+            system("cls");
+            red();
+            printf("Please Enter Correct Type \n");
+            reset();
             AddSaveProductCart(userCart, currentUser, targetProduct);
             return;
         }
 
-        reset();
         if(quantity > targetProduct->productQuantity){
-            printf("We Only have %d Item In Stock\n",targetProduct->productQuantity);
+            printf("We Only have \033[0;33m%d\033[0m Item In Stock\n",targetProduct->productQuantity);
             printf("Please Enter Number Of Your Item Again\n");
             AddSaveProductCart(userCart, currentUser, targetProduct);
             return;
@@ -433,7 +459,6 @@ void CheckIfProductExistInCart(User *currentUser, UserCart *userCart){
     else {
         SaveProductToCart(userCart);
     }
-   
     
 
 }
@@ -462,7 +487,9 @@ void SaveProductToCart(UserCart *userCart){
     );
     
     if(fwrite != 0){
+        green();
         printf("\nYour Product Have Save To Your Cart!\n");
+        reset();
     }
     else{
         printf("\nError saving");
@@ -644,9 +671,10 @@ void PayBill(User *currentUser){
     fflush(stdin);   
     yellow();
     if(scanf("%c",&choice) != 1) {
+        system("cls");
+        red();
+        printf("Please Enter Correct Type \n");
         reset();
-        system("clear");
-        printf("Please Enter Correct Type\n");
         PayBill(currentUser);
         return;
     } 
@@ -667,8 +695,10 @@ void PayBill(User *currentUser){
     }
 
     else {
-        system("clear");
+        system("cls");
+        red();
         printf("Please Enter Correct Type \n");
+        reset();
         PayBill(currentUser);
         return;
     }
@@ -1037,7 +1067,7 @@ void EditItemInCart(User *currentUser){
     yellow();
     if(scanf("%d",&targetLine) != 1) {
         reset();
-        system("clear");
+        system("cls");
         printf("Please Enter Correct Type\n");
         EditItemInCart(currentUser);
     }
@@ -1215,7 +1245,7 @@ void RemoveItemInCart(User *currentUser){
     yellow();
     if(scanf("%d",&targetLine) != 1) {
         reset();
-        system("clear");
+        system("cls");
         printf("Please Enter Correct Type\n");
         RemoveItemInCart(currentUser);
     }

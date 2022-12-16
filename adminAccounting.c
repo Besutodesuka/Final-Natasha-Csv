@@ -26,7 +26,7 @@ void SelectAccounting(){
     printf("\n\nYour choice\t:\t");
     yellow();
     if(scanf("%d",&choice) != 1) {
-        system("clear");
+        system("cls");
         reset();
         printf("Please Enter Correct Type\n");
         SelectPointOfSales();
@@ -494,7 +494,7 @@ void CalculateMonthAccounting(char target[], char fullTarget[]){
         break;
     
     default:
-        system("clear");
+        system("cls");
         printf("Please Enter A Correct Choice\n");
         CalculateMonthAccounting(target, fullTarget);
         return;
@@ -564,7 +564,7 @@ void CalculateWeekAccounting(time_t *lastTime, time_t *lastLastTime, time_t *sel
         break;
     
     default:
-        system("clear");
+        system("cls");
         printf("Please Enter A Correct Choice\n");
         CalculateWeekAccounting(lastTime, lastLastTime, selectDate);
         return;

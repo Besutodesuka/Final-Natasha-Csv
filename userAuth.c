@@ -105,7 +105,7 @@ void Register(int *loginOrNot, User *currentUser){
     fp = fopen("database/User.csv", "a+");
  
     if (fp == NULL){
-        printf("Error opening User.csv\n");
+        printf("Error Opening User.csv\n");
         return;
     }
 
@@ -121,27 +121,27 @@ void Register(int *loginOrNot, User *currentUser){
     reset();
     user.userName[strlen(user.userName)-1] = 0;
     
-    printf("\nPlease enter your password:\t");
+    printf("\nPlease Enter Your Password:\t");
     yellow();
     fgets(user.password,50,stdin);
     reset();
     user.password[strlen(user.password)-1] = 0;
     
-    printf("\nPlease enter your email:\t");
+    printf("\nPlease Enter Your Email:\t");
     yellow();
     fgets(user.email,50,stdin);
     reset();
     user.email[strlen(user.email)-1] = 0;
 
     
-    printf("\nPlease enter your phone:\t");
+    printf("\nPlease Enter Your Phone:\t");
     yellow();
     fgets(user.phone,50,stdin);
     reset();
     user.phone[strlen(user.phone)-1] = 0;
 
     
-    printf("\nPlease enter your role [1 = admin, 0 = user]:\t");
+    printf("\nPlease Enter Your Role [1 = admin, 0 = user]:\t");
     yellow();
     scanf("%d",&checkRole);
     reset();
@@ -205,9 +205,12 @@ void Register(int *loginOrNot, User *currentUser){
         *loginOrNot = 2;
         return;
     }
-    
-    else {
+    else if(strcmp(user.role, "user") == 0){
         *loginOrNot = 1;
+        return;
+    }
+    else {
+        Register(loginOrNot,currentUser);
         return;
     }
     }

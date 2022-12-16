@@ -107,7 +107,7 @@ void AddProduct(){
     yellow();
     if(scanf("%d",&product.productQuantity) != 1) {
         reset();
-        system("clear");
+        system("cls");
         printf("Please Enter Correct Type\n");
         AddProduct();
         return;
@@ -119,7 +119,7 @@ void AddProduct(){
     yellow();
     if(scanf("%d",&product.productPrice) != 1) {
         reset();
-        system("clear");
+        system("cls");
         printf("Please Enter Correct Type\n");
         AddProduct();
         return;
@@ -131,7 +131,7 @@ void AddProduct(){
     yellow();
     if(scanf("%d",&product.productCost) != 1) {
         reset();
-        system("clear");
+        system("cls");
         printf("Please Enter Correct Type\n");
         AddProduct();
         return;
@@ -140,7 +140,7 @@ void AddProduct(){
 
     // printf("\nEnter Product Profit:\t");
     // if(scanf("%d",&product.productProfit) != 1) {
-    //     system("clear");
+    //     system("cls");
     //     printf("Please Enter Correct Type\n");
     //     AddProduct();
     //     return;
@@ -150,7 +150,7 @@ void AddProduct(){
     yellow();
     if(scanf("%d",&product.minimumQuantity) != 1) {
         reset();
-        system("clear");
+        system("cls");
         printf("Please Enter Correct Type\n");
         AddProduct();
         return;
@@ -220,7 +220,7 @@ void EditProductInDB(){
     yellow();
     if(scanf("%d",&targetLine) != 1) {
         reset();
-        system("clear");
+        system("cls");
         printf("Please Enter Correct Type\n");
         EditProductInDB();
     }
@@ -275,7 +275,7 @@ void EditProductInDB(){
             yellow();
             if(scanf("%d",&updateProduct.productPrice) != 1) {
                 reset();
-                system("clear");
+                system("cls");
                 printf("Please Enter Correct Type\n");
                 EditProductInDB();
                 return;
@@ -286,7 +286,7 @@ void EditProductInDB(){
             yellow();
             if(scanf("%d",&updateProduct.productQuantity) != 1) {
                 reset();
-                system("clear");
+                system("cls");
                 printf("Please Enter Correct Type\n");
                 EditProductInDB();
                 return;
@@ -297,7 +297,7 @@ void EditProductInDB(){
             yellow();
             if(scanf("%d",&updateProduct.productCost) != 1) {
                 reset();
-                system("clear");
+                system("cls");
                 printf("Please Enter Correct Type\n");
                 EditProductInDB();
                 return;
@@ -305,7 +305,7 @@ void EditProductInDB(){
             
             // printf("\nCurrent Product Profit For Product is %d: Please Enter New Value :\t", updateProduct.productProfit);
             // if(scanf("%d",&updateProduct.productProfit) != 1) {
-            //     system("clear");
+            //     system("cls");
             //     printf("Please Enter Correct Type\n");
             //     EditProductInDB();
             //     return;
@@ -315,7 +315,7 @@ void EditProductInDB(){
             yellow();
             if(scanf("%d",&updateProduct.minimumQuantity) != 1) {
                 reset();
-                system("clear");
+                system("cls");
                 printf("Please Enter Correct Type\n");
                 EditProductInDB();
                 return;
@@ -435,7 +435,7 @@ void RemoveProduct(){
     yellow();
     if(scanf("%d",&targetLine) != 1) {
         reset();
-        system("clear");
+        system("cls");
         printf("Please Enter Correct Type\n");
         RemoveProduct();
     }
@@ -572,7 +572,7 @@ void RemoveProduct(){
 //     scanf("%d",&deleteLine);
 
 //     if(scanf("%d",&deleteLine) != 1) {
-//         system("clear");
+//         system("cls");
 //         printf("Please Enter Correct Type\n");
 //         RemoveProduct();
 //     }

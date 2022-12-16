@@ -24,7 +24,7 @@ void SelectPointOfSales(){
     printf("\n\nYour choice\t:\t");
     yellow();
     if(scanf("%d",&choice) != 1) {
-        system("clear");
+        system("cls");
         reset();
         printf("Please Enter Correct Type\n");
         SelectPointOfSales();
@@ -187,7 +187,7 @@ void CalculateMonth(char target[]){
         break;
     
     default:
-        system("clear");
+        system("cls");
         printf("Please Enter A Correct Choice\n");
         CalculateMonth(target);
         return;
@@ -362,7 +362,7 @@ void CalculateDay(time_t *lastLastTime, time_t *lastTime, time_t *selectDate){
         break;
     
     default:
-        system("clear");
+        system("cls");
         printf("Please Enter A Correct Choice\n");
         CalculateDay(lastLastTime, lastTime, selectDate);
         return;
