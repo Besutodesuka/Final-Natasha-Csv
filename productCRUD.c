@@ -53,8 +53,10 @@ void PrintProduct(){
         sp = strtok(NULL, ",");
         product.minimumQuantity = atoi(sp);
 
-        printf("Product Name                  :\t%s\n", product.productName);
-        printf("Product Price                 :\t%d\n", product.productPrice);
+        printf("Product Name                  :\t\033[0;33m%s\n", product.productName);
+        reset();
+        printf("Product Price                 :\t\033[0;33m%d\n", product.productPrice);
+        reset();
         if(product.productQuantity <= product.minimumQuantity){
             
             printf("Product Quantity              :\t\033[0;31m%d\n", product.productQuantity);
@@ -63,11 +65,15 @@ void PrintProduct(){
             counter++;
         }
         else {
-            printf("Product Quantity              :\t%d\n", product.productQuantity);
+            printf("Product Quantity              :\t\033[0;33m%d\n", product.productQuantity);
+            reset();
         }
-        printf("Product Cost                  :\t%d\n", product.productCost);
-        printf("Product Profit                :\t%d\n", product.productPrice - product.productCost);
-        printf("Product minimumQuantity       :\t%d\n", product.minimumQuantity);
+        printf("Product Cost                  :\t\033[0;33m%d\n", product.productCost);
+        reset();
+        printf("Product Profit                :\t\033[0;33m%d\n", product.productPrice - product.productCost);
+        reset();
+        printf("Product minimumQuantity       :\t\033[0;33m%d\n", product.minimumQuantity);
+        reset();
         printf("-------------------------------------------\n\n");
         i++;
     }
@@ -152,14 +158,18 @@ void AddProduct(){
     reset();
 
     printf("\n-------------  Product Detail  ---------------\n");
-    printf("\tProduct Name              :\t%s\n", product.productName);
-    printf("\tProduct Price             :\t%d\n", product.productPrice);
-    printf("\tProduct Quantity          :\t%d\n", product.productQuantity);
-    printf("\tProduct Cost              :\t%d\n", product.productCost);
+    printf("Product Name              :\t\033[0;33m%s\n", product.productName);
+    reset();
+    printf("Product Price             :\t\033[0;33m%d\n", product.productPrice);
+    reset();
+    printf("Product Quantity          :\t\033[0;33m%d\n", product.productQuantity);
+    reset();
+    printf("Product Cost              :\t\033[0;33m%d\n", product.productCost);
+    reset();
     // printf("\tProduct Profit            :\t%d\n", product.productProfit);
-    printf("\tProduct minimumQuantity   :\t%d\n", product.minimumQuantity);
-    printf("---------------------------------------------------\n\n");
-    printf("\n\n");
+    printf("Product minimumQuantity   :\t\033[0;33m%d\n", product.minimumQuantity);
+    reset();
+    printf("-----------------------------------------------\n\n");
     printf("\nConfirm To Add This Product? [y/n]:\t");
     char saveProduct;
     yellow();
@@ -180,7 +190,7 @@ void AddProduct(){
             product.minimumQuantity
         );
         if(fwrite != 0){
-            printf("\nSuccessfully saved\n");
+            // printf("\nSuccessfully saved\n");
         }
         else{
             printf("\nError saving");
@@ -255,13 +265,13 @@ void EditProductInDB(){
 
             found = 1;
             fflush(stdin);
-            printf("Current Product Name For Product is \033[0;34m%s\033[0m; Please Enter New Value :\t", updateProduct.productName);
+            printf("Current Product Name For Product is \033[0;34m%s\033[0m \nPlease Enter New Value     :\t", updateProduct.productName);
             yellow();
             fgets(updateProduct.productName ,50,stdin);
             reset();
             updateProduct.productName[strlen(updateProduct.productName)-1] = 0;
 
-            printf("Current Product Price For Product is \033[0;34m%d\033[0m; Please Enter New Value :\t", updateProduct.productPrice);
+            printf("\nCurrent Product Price For Product is \033[0;34m%d\033[0m \nPlease Enter New Value    :\t", updateProduct.productPrice);
             yellow();
             if(scanf("%d",&updateProduct.productPrice) != 1) {
                 reset();
@@ -270,8 +280,9 @@ void EditProductInDB(){
                 EditProductInDB();
                 return;
             }
-            
-            printf("Current Product Quantity For Product is \033[0;34m%d\033[0m; Please Enter New Value :\t", updateProduct.productQuantity);
+
+            reset();
+            printf("\nCurrent Product Quantity For Product is \033[0;34m%d\033[0m \nPlease Enter New Value :\t", updateProduct.productQuantity);
             yellow();
             if(scanf("%d",&updateProduct.productQuantity) != 1) {
                 reset();
@@ -280,8 +291,9 @@ void EditProductInDB(){
                 EditProductInDB();
                 return;
             }
-            
-            printf("Current Product Cost For Product is \033[0;34m%d\033[0m; Please Enter New Value :\t", updateProduct.productCost);
+
+            reset();
+            printf("\nCurrent Product Cost For Product is \033[0;34m%d\033[0m \nPlease Enter New Value :\t", updateProduct.productCost);
             yellow();
             if(scanf("%d",&updateProduct.productCost) != 1) {
                 reset();
@@ -291,15 +303,15 @@ void EditProductInDB(){
                 return;
             }
             
-            // printf("Current Product Profit For Product is %d: Please Enter New Value :\t", updateProduct.productProfit);
+            // printf("\nCurrent Product Profit For Product is %d: Please Enter New Value :\t", updateProduct.productProfit);
             // if(scanf("%d",&updateProduct.productProfit) != 1) {
             //     system("clear");
             //     printf("Please Enter Correct Type\n");
             //     EditProductInDB();
             //     return;
             // }
-
-            printf("Current Product Minimum Quantity For Product is \033[0;34m%d\033[0m; Please Enter New Value :\t", updateProduct.minimumQuantity);
+            reset();
+            printf("\nCurrent Product Minimum Quantity For Product is \033[0;34m%d\033[0m \nPlease Enter New Value :\t", updateProduct.minimumQuantity);
             yellow();
             if(scanf("%d",&updateProduct.minimumQuantity) != 1) {
                 reset();
@@ -320,7 +332,7 @@ void EditProductInDB(){
             );
             
             if(fwrite != 0){
-                printf("\nSuccessfully saved");
+                // printf("\nSuccessfully saved");
             }
             else{
                 printf("\nError saving");
@@ -341,7 +353,7 @@ void EditProductInDB(){
             );
 
             if(fwrite != 0){
-                printf("\nSuccessfully saved");
+                // printf("\nSuccessfully saved");
             }
             else{
                 printf("\nError saving");
@@ -392,7 +404,9 @@ void EditProductInDB(){
         }
         fclose(fp);
         fclose(fpTemp);        
-
+        green();
+        printf("Updated Product SuccessFully\n");
+        reset();
     }
     else {
         printf("DATA NOT FOUND\n");
@@ -469,7 +483,7 @@ void RemoveProduct(){
                 tempProduct.minimumQuantity
             );
             if(fwrite != 0){
-                printf("\nSuccessfully saved");
+                // printf("\nSuccessfully saved");
             }
             else{
                 printf("\nError saving");
@@ -519,7 +533,7 @@ void RemoveProduct(){
                 tempProduct.minimumQuantity
             );
             if(fwrite != 0){
-                printf("\nSuccessfully saved");
+                // printf("\nSuccessfully saved");
             }
             else{
                 printf("\nError saving");
@@ -528,6 +542,9 @@ void RemoveProduct(){
         }
         fclose(fp);
         fclose(fpTemp);
+        green();
+        printf("Remove Product SuccessFully\n");
+        reset();
     }
     else {
         printf("DATA NOT FOUND\n");

@@ -18,7 +18,7 @@ void SelectPointOfSales(){
     printf("\n\nHey Admin! What You Want To Do Here?");
     reset();
     printf("\n(1) See Some Specific Days In 7 Days");
-    printf("\n(2) See Some Week In Month");
+    printf("\n(2) See Some Month");
     // printf("\n(3) Back To Admin Dashboard");
     printf("\n(3) Exit");
     printf("\n\nYour choice\t:\t");
@@ -62,9 +62,8 @@ void SpecificWeekInMonth(){
     char *sp;
 
     int size = 0;
-
+    
     UserPOS tempProduct[1000];
-
 
     while (fgets(line, 1000, fp) != NULL){
 
@@ -113,6 +112,9 @@ void SpecificWeekInMonth(){
         }
 
     }
+
+    printf("There Are : \033[0;33m%d \033[0mTransection In \033[0;33m%s\n",counter, target);
+
 
     return;
   

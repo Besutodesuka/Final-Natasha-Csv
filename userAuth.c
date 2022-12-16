@@ -111,7 +111,7 @@ void Register(int *loginOrNot, User *currentUser){
 
     // system("cls");
     green();
-    printf("\n-------------------\tRegister Page\t-------------------");
+    printf("\n-------------------\tRegister Page\t-------------------\n");
     reset();
 
     printf("\nPlease enter your userName:\t");
@@ -154,13 +154,18 @@ void Register(int *loginOrNot, User *currentUser){
     }
 
 
-    printf("\n------------- User Detail ---------------\n\n");
-    printf("\tUserName  :\t%s\n",user.userName);
-    printf("\tPassword  :\t%s\n",user.password);
-    printf("\tEmail     :\t%s\n",user.email);
-    printf("\tPhone     :\t%s\n",user.phone);
-    printf("\tRole      :\t%s\n",user.role);
-    printf("\n\n");
+    printf("\n------------- User Detail ---------------\n");
+    printf("UserName  :\t\033[0;33m%s\n",user.userName);
+    reset();
+    printf("Password  :\t\033[0;33m%s\n",user.password);
+    reset();
+    printf("Email     :\t\033[0;33m%s\n",user.email);
+    reset();
+    printf("Phone     :\t\033[0;33m%s\n",user.phone);
+    reset();
+    printf("Role      :\t\033[0;33m%s\n",user.role);
+    reset();
+    printf("------------------------------------------\n\n");
     printf("\nDo you want to save the invoice [y/n]:\t");
     char saveBill;
     fflush(stdin);

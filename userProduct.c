@@ -610,7 +610,7 @@ void PrintUserCartSpecific(char *target, UserCart itemsInCart[], int *itemsCount
             reset();
             // strptime(sp, "%s", &userCart.timeStamp);
             *itemsCount = *itemsCount + 1;
-            printf("-----------------------------------------------------------------------\n\n",*itemsCount+1);
+            printf("----------------------------------------------------------------------\n\n",*itemsCount+1);
         }
       
         i++;
@@ -1180,7 +1180,7 @@ void EditItemInCart(User *currentUser){
         fclose(fp);
         fclose(fpTemp);
         green();
-        printf("Successfully saved\n");
+        printf("Update Product In Cart SuccessFully\n");
         reset();
         UserSelection(currentUser);
         return;
@@ -1331,7 +1331,9 @@ void RemoveItemInCart(User *currentUser){
 
         fclose(fp);
         fclose(fpTemp);
-        printf("Successfully saved\n");
+        green();
+        printf("Remove Product In Cart SuccessFully\n");
+        reset();
         UserSelection(currentUser);
         return;
     }

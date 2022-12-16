@@ -574,9 +574,12 @@ void CalculateWeekAccounting(time_t *lastTime, time_t *lastLastTime, time_t *sel
 
 void SortProduct(ProductPOS product[], int size){
 
+
+
     for (int i = 0; i < size-1; i++){
         for (int j = 0; j < size-1-i; j++){
-            if(product[j].productProfit < product[j+1].productProfit){
+            // int temp = product[j].productProfit * product[j].totalInCart;
+            if(product[j].productProfit * product[j].totalInCart < product[j+1].productProfit * product[j+1].totalInCart){
                 ProductPOS temp = product[j];
                 product[j] = product[j+1];
                 product[j+1] = temp;
